@@ -13,11 +13,19 @@ import About from './components/About';
 import Success from './components/Success';
 import DogModal from './components/DogModal';
 import OrderModal from './components/OrderModal';
+import {Provider} from 'react-redux';
+import store from './store';
+import {loadUser} from './actions/authActions';
 
 
 class App extends Component{
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
+
   render() {
   return (
+    <Provider store = {store}>
       <div className="App">
         <React.Fragment>
           <MainHeader />
@@ -36,6 +44,7 @@ class App extends Component{
           <Footer />
         </React.Fragment>
       </div>
+    </Provider>
     );
   }
 }

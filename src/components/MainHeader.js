@@ -1,9 +1,34 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import '../App.css';
 import {Link} from 'react-router-dom';
+import LoginModal from './auth/LoginModal';
+import Logout from './auth/Logout';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 class MainHeader extends Component{
+
+  static propTypes = {
+    auth: PropTypes.object.isRequired
+  }
   render() {
+    const{isAuthenticated, user} = this.props.auth;
+
+    const authLinks = (
+      <Fragment>
+        <h6 className = "welcome">
+          <strong>{user ? `Welcome, ${user.name}` : null} </strong>
+        </h6>
+         <Logout />
+      </Fragment>
+    );
+
+    const guestLinks = (
+      <Fragment>
+        <LoginModal /> 
+      </Fragment>
+    )
+
   return (
       <nav>
         <ul className = "main-nav">
@@ -37,6 +62,7 @@ class MainHeader extends Component{
           </li>
           <li className = "cart-button">
             <div className = "top-right">
+              { isAuthenticated ? authLinks : guestLinks}
               <Link to= '/cart'>
                 <button>
                 <img alt = "Cart" src = {require("../images/cart.png")}/>
@@ -51,4 +77,9 @@ class MainHeader extends Component{
   }
 }
 
-export default MainHeader;
+
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(mapStateToProps,null)(MainHeader);
