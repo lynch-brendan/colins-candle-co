@@ -21,12 +21,12 @@ export default class Details extends Component{
                   <p>Price: ${details.price}</p>
                   <div className = "detail-buttons">
                     <Link to="/">
-                      <button className = "back-to-products">
+                      <button className = "cart-btn">
                         Back to Products
                       </button>
                     </Link>
                     <button 
-                      className = "in-cart-btn" 
+                      className = "cart-btn" 
                       disabled = {details.inCart ? true : false}
                       onClick = {() => {
                         value.addToCart(details.id);

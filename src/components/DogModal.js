@@ -11,8 +11,8 @@ export default class DogModal extends Component{
                 return null;
             } else {
                 return(
-                    <div className = "dog-modal-container">
-                        <div className = "dog-modalfoo">
+                    <div className = "modalContainer">
+                        <div className = "modal-body">
                             <div className = "dog-modal-text">
                                 <div className = "dog-modal-top-row">
                                     <h1>

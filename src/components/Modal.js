@@ -16,7 +16,7 @@ export default class Modal extends Component{
           } else {
             return(
             <div className = "modalContainer">
-              <div className = "modalFoo">
+              <div className = "modal-body">
                 <div className = "modal-top">
                     <h5>Item added to the cart.</h5>
                     <button
@@ -27,7 +27,7 @@ export default class Modal extends Component{
                 </div>
                 <img src = {prod.img} alt = "prod" />
                 <h5>{prod.title}</h5>
-                <h6><strong>Price: ${prod.price}</strong></h6>
+                <h6 id = "modal-price"><strong>Price: ${prod.price}</strong></h6>
                 <div className = "modal-inc-button">
                    <div className = "decrement-button">
                      <button
@@ -46,7 +46,7 @@ export default class Modal extends Component{
                    </div>
                 </div>
                 <Link to="/">
-                  <button className = "in-cart-btn"
+                  <button id = "continue-shopping-btn"
                   onClick = {() => closeModal()}>
                     Continue Shopping
                   </button>

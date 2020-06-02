@@ -72,6 +72,18 @@ class ProductProvider extends Component{
     {return {modalOpen: false}})
   }
 
+  openContactModal = () => {
+    this.setState(() =>
+    {return {contactModalOpen: true}}
+    )
+  }
+
+  closeContactModal = () => {
+    this.setState(() =>
+    {return {contactModalOpen: false}}
+    )
+  }
+
   openDogModal = () => {
     this.setState(() =>
     {return {dogModalOpen: true}}
@@ -242,7 +254,9 @@ class ProductProvider extends Component{
         addOrder: this.addOrder,
         openOrderModal: this.openOrderModal,
         closeOrderModal: this.closeOrderModal,
-        logIn: this.logIn
+        logIn: this.logIn,
+        openContactModal: this.openContactModal,
+        closeContactModal: this.closeContactModal
       }}>
           {this.props.children}
       </ProductContext.Provider>

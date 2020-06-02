@@ -8,6 +8,7 @@ export default class MyApp extends React.Component {
                     this.props.addOrder(payment);
                     this.props.clearCart();
                     this.props.history.push('/');
+                    this.props.openOrderModal();
             		// You can bind the "payment" object's value to your state or props or whatever here, please see below for sample returned data
         }
  

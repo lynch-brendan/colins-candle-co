@@ -9,9 +9,9 @@ export default class About extends Component{
         <h1 className = "about-header">About Us</h1>
         <div className = "about-top">
           <div className = "about-top-text">
-              <h1>
+              <h3 id = "our-mission">
                 Our Mission:
-              </h1>
+              </h3>
               <h2>
                 In the dark times of quarantine, Colin's Candle Company tries to bring the world a little bit of light. 
               </h2>
@@ -20,7 +20,7 @@ export default class About extends Component{
         </div>
         <div className = 'about-bottom-container'>
           <div className = "about-bottom-column">
-              <h2>
+              <h2 className = "about-bottom-header">
                 How Did We Start?
               </h2>
               <p>
@@ -34,7 +34,7 @@ export default class About extends Component{
               </p>
           </div>
           <div className = "about-bottom-column">
-              <h2>
+              <h2 className = "about-bottom-header"> 
                 How Are Our Candles Made?
               </h2>
               <p>
@@ -46,7 +46,7 @@ export default class About extends Component{
               </p>
           </div>
           <div className = "about-bottom-column">
-              <h2>
+              <h2 className = "about-bottom-header">
                 Why All the Dog GIFs?
               </h2>
               <p>
@@ -57,7 +57,7 @@ export default class About extends Component{
                   them a treat for you!
               </p>
               <ProductConsumer>
-                {(value) =>               
+                {(value) =>  
                   <button onClick = {() => 
                     value.openDogModal()}>
                     Give Bert and Bailey a Treat!

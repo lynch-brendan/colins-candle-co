@@ -30,12 +30,13 @@ class MainHeader extends Component{
     )
 
   return (
-      <nav>
+      <nav id = "main-header">
         <ul className = "main-nav">
           <li className = "dog-gif">
             <Link to='/about'>
               <img 
-              alt = "Bert and Bailey GIF" 
+              alt = "Bert and Bailey GIF"
+              id = "header-gif"
               src = {require("../images/bnb.gif")}
               onClick = {() => console.log(process.env.REACT_APP_PAYPAL_API)}/>
             </Link>
@@ -65,7 +66,7 @@ class MainHeader extends Component{
               { isAuthenticated ? authLinks : guestLinks}
               <Link to= '/cart'>
                 <button>
-                <img alt = "Cart" src = {require("../images/cart.png")}/>
+                <img alt = "Cart" src = {require("../images/cart-image.png")}/>
                 <h3>Cart</h3>
                 </button>
               </Link>

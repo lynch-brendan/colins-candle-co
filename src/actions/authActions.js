@@ -6,9 +6,7 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    LOGOUT_SUCCESS,
-    REGISTER_SUCCESS,
-    REGISTER_FAIL
+    LOGOUT_SUCCESS
 } from './types'; 
 
 export const loadUser = () => (dispatch, getState) => {

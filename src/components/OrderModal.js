@@ -13,9 +13,9 @@ export default class OrderModal extends Component{
         } else {
         return(
           <div className = "modalContainer">
-              <div className = "modalFoo">
+              <div className = "modal-body">
                   <div className = "top-modal-text">
-                    <h1>Your Order is Confirmed!</h1>
+                    <h1>Your Order is Successful!</h1>
                     <button
                       onClick = {() => closeOrderModal()}> 
                         x 
@@ -24,6 +24,7 @@ export default class OrderModal extends Component{
                   <h2>You should receive an order confirmation from PayPal within the next few
                       minutes. If there are any issues, please contact us at colinscandleco@gmail.com!
                   </h2>
+                  <img id = "bnbng" src = {require('../images/bnbng.png')} alt = 'order success!' />
               </div>
           </div>
         );}

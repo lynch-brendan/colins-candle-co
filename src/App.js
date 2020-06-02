@@ -35,7 +35,7 @@ class App extends Component{
             <Route path = "/cart" component = {Cart} />
             <Route path = "/contact" component = {Contact} />
             <Route path = "/about" component = {About} />
-            <Route path = "/success" component = {Success} />
+            <Route path = '/success' component = {Success} />
             <Route component = {Default} />
           </Switch>
           <Modal />

@@ -8,9 +8,9 @@ class ProductList extends Component{
   render() {
   return (
     <React.Fragment>
-      <div className = "container">
+      <div className = "product-container">
         <div className = "row">
-          <Title name = "Our " title = "Products" />
+          <Title name = "Our " title = "Candles" />
         </div>
         <div className = "product-listing">
         <ProductConsumer>
