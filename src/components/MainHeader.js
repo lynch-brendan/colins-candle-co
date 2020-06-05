@@ -19,7 +19,10 @@ class MainHeader extends Component{
         <h6 className = "welcome">
           <strong>{user ? `Welcome, ${user.name}` : null} </strong>
         </h6>
-         <Logout />
+        <span className = "admin-bar">
+          <Logout />
+          <Link to='/admin'>Admin</Link>
+         </span>
       </Fragment>
     );
 

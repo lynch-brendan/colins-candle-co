@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 export default class extends React.Component {
   constructor(props) {
@@ -38,9 +37,7 @@ export default class extends React.Component {
         	style={{width: '100%', height: '150px'}}
       	/>
     	</div>
-      <Link to="/success">
-    	  <input type="button" value="Submit" className="submit-btn" onClick={this.handleSubmit} />
-      </Link>
+    	<input type="button" value="Submit" className="submit-btn" onClick={this.handleSubmit} />
   	</form>
 	)
   }
@@ -59,6 +56,12 @@ export default class extends React.Component {
   handleSubmit (event) {
     const templateId = 'template_IVA7hSRl';
     this.sendFeedback(templateId, {message_html: this.state.feedback, from_name: this.state.name, reply_to: this.state.email});
+    this.setState({
+      ...this.state,
+      feedback: '',
+      name: '',
+      email: ''
+    }, () => alert("Form Sent Successfully. Thank you for your feedback!"));
   }
   
     sendFeedback (templateId, variables) {

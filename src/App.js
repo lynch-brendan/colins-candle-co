@@ -10,15 +10,21 @@ import Modal from './components/Modal';
 import Footer from './components/Footer';
 import Contact from './components/Contact';
 import About from './components/About';
-import Success from './components/Success';
 import DogModal from './components/DogModal';
 import OrderModal from './components/OrderModal';
 import {Provider} from 'react-redux';
 import store from './store';
 import {loadUser} from './actions/authActions';
+import ProtectedRoute from './components/ProtectedRoute';
+import Admin from './components/Admin';
+import ActiveOrders from './components/admin/ActiveOrders';
+import CompletedOrders from './components/admin/CompletedOrders';
+import Inventory from './components/admin/Inventory';
 
 
 class App extends Component{
+
+  //Check for user identification constantly
   componentDidMount() {
     store.dispatch(loadUser());
   }
@@ -31,11 +37,14 @@ class App extends Component{
           <MainHeader />
           <Switch>
             <Route exact path = "/" component = {ProductList} />
-            <Route path = "/details" component = {Details} />
-            <Route path = "/cart" component = {Cart} />
-            <Route path = "/contact" component = {Contact} />
-            <Route path = "/about" component = {About} />
-            <Route path = '/success' component = {Success} />
+            <Route exact path = "/details" component = {Details} />
+            <Route exact path = "/cart" component = {Cart} />
+            <Route exact path = "/contact" component = {Contact} />
+            <Route exact path = "/about" component = {About} />
+            <ProtectedRoute exact path = '/admin' component = {Admin} />
+            <ProtectedRoute exact path = '/active' component = {ActiveOrders} />
+            <ProtectedRoute exact path = '/completed' component = {CompletedOrders} />
+            <ProtectedRoute exact path = '/inventory' component = {Inventory} />
             <Route component = {Default} />
           </Switch>
           <Modal />

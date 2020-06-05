@@ -24,14 +24,37 @@ class ProductProvider extends Component{
   }
 
   setProducts = () => {
+    //Call the get request to the database here
+    //and set it equal to storeProducts, detailProduct.
+
+    //CODE FOR WHEN WE NEED INVENTORY UPDATING
+    // var storeProducts;
+    // axios.get('/api/items')
+    //   .then(items => {
+    //     storeProducts = items.data;
+    //     let tempProducts = [];
+    //     storeProducts.forEach(item => {
+    //       const singleItem = {...item};
+    //       tempProducts = [...tempProducts, singleItem];
+    //     });
+    //     this.setState(() => {
+    //       return {products: tempProducts};
+    //     });
+    //   })
+    //   .catch(error =>
+    //     console.log(error))
+
     let tempProducts = [];
-    storeProducts.forEach(item => {
-      const singleItem = {...item};
-      tempProducts = [...tempProducts, singleItem];
-    });
-    this.setState(() => {
-      return {products: tempProducts};
-    });
+        storeProducts.forEach(item => {
+          const singleItem = {...item};
+          tempProducts = [...tempProducts, singleItem];
+        });
+        this.setState(() => {
+          return {products: tempProducts};
+        });
+
+
+
   }
 
   handleDetail = (id) =>{
@@ -165,7 +188,7 @@ class ProductProvider extends Component{
       axios
       .post('api/orders', output)
       .then(function (response) {
-        console.log(response);
+        console.log("Order Received.");
       })
       .catch(function (error) {
         console.log(error);

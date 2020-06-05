@@ -2,24 +2,24 @@ const express = require('express');
 const router = express.Router();
 
 //Order Model
-const Order = require('../../models/Order');
+const CompletedOrder = require('../../models/CompletedOrder');
 
-//@route GET api/orders
-//@desc get ALL orders
+//@route GET api/completedOrders
+//@desc get ALL completed orders
 //@access Public
 router.get('/', (req, res) => {
-    Order.find()
+    CompletedOrder.find()
     .sort({date: -1})
     .then(orders => res.json(orders))
     .catch(e => {console.log('get error: ' + e)});
 } );
 
 
-//@route POST api/orders
-//@desc Create an order
+//@route POST api/completedOrders
+//@desc Create a completed order
 //@access Public 
 router.post('/', async (req, res) => {
-    const newOrder = new Order({
+    const newOrder = new CompletedOrder({
      id: req.body.id,
      name: req.body.name,
      items: req.body.items,
@@ -31,14 +31,14 @@ router.post('/', async (req, res) => {
       .catch(e => {console.log('save error: ' + e)});
 });
 
-//@route DELETE api/orders/:id
-//@desc Delete an order
+//@route DELETE api/completedOrders/:id
+//@desc Delete a completed order
 //@access Public
 router.delete('/:id', (req,  res) => {
-    Order.findById(req.params.id)
+    CompletedOrder.findById(req.params.id)
     .then(order => order.remove()
                   .then(() => 
-                         res.json({success: true})))
+                         res.json(req.params.id)))
                          .catch(err => res.status(404).json({success: false}));
 });
 
